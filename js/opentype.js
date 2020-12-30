@@ -23,12 +23,12 @@ function cellSelect(event) {
     }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     fontFamily = document.getElementById('font-family');
     fileButton = document.getElementById('file');
     fileButton.addEventListener('change', onReadFile, false);
-    var fontFileName = 'fonts/arialbd.ttf';
-    opentype.load(fontFileName, function(err, font) {
+    var fontFileName = 'fonts/Fira-Code-Regular-Nerd-Font-Complete.ttf';
+    opentype.load(fontFileName, function (err, font) {
         var amount, glyph, ctx, x, y, fontSize;
         if (err) {
             showErrorMessage(err.toString());
@@ -114,7 +114,7 @@ function drawPathWithArrows(ctx, path) {
         ctx.fillStyle = path.stroke;
         ctx.stroke();
     }
-    arrows.forEach(function(arrow) {
+    arrows.forEach(function (arrow) {
         drawArrow.apply(null, arrow);
     });
 }
@@ -213,7 +213,7 @@ function onReadFile(e) {
     var file = e.target.files[0];
     var reader = new FileReader();
 
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         try {
             font = opentype.parse(e.target.result);
             // fontFamily.innerHTML = font.familyName || this.files[0].name.replace(/\.[^/.]+$/, "");
@@ -224,7 +224,7 @@ function onReadFile(e) {
             throw (err);
         }
     };
-    reader.onerror = function(err) {
+    reader.onerror = function (err) {
         showErrorMessage(err.toString());
     };
 
@@ -409,7 +409,7 @@ function pathCommandToString(cmd) {
 }
 
 function contourToString(contour) {
-    return '<pre class="contour">' + contour.map(function(point) {
+    return '<pre class="contour">' + contour.map(function (point) {
         return '<span class="' + (point.onCurve ? 'on' : 'off') + 'curve">x=' + point.x + ' y=' + point.y + '</span>';
     }).join('\n') + '</pre>';
 }
@@ -425,7 +425,7 @@ function formatUnicode(unicode) {
 
 function pageSelect(event) {
     var selected = document.getElementsByClassName('page-selected');
-    if(selected.length > 0) {
+    if (selected.length > 0) {
         selected[0].className = 'page';
     }
 
