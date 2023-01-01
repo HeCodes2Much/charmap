@@ -27,7 +27,7 @@ $(document).ready(function () {
     fontFamily = document.getElementById('font-family');
     fileButton = document.getElementById('file');
     fileButton.addEventListener('change', onReadFile, false);
-    var fontFileName = 'fonts/Fira-Code-Regular-Nerd-Font-Complete.ttf';
+    var fontFileName = 'fonts/feathericons.ttf';
     opentype.load(fontFileName, function (err, font) {
         var amount, glyph, ctx, x, y, fontSize;
         if (err) {
